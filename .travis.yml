@@ -1,8 +1,0 @@
-language: java
-
-jdk:
-  - openjdk17
-
-script:
-  - cd backend
-  - ./mvnw clean install
