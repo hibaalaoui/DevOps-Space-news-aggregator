@@ -30,5 +30,14 @@ pipeline {
                 }
             }
         }
+        stage('Deploy with Docker Compose') {
+            steps {
+                script {
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hibaalaoui/DevOps-Space-news-aggregator']])
+                    sh 'docker compose down'
+                    sh 'docker compose up -d'
+                }
+            }
+        }
     }
 }
