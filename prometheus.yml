@@ -5,4 +5,4 @@ scrape_configs:
   - job_name: 'springboot-app'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['app:8080']
+      - targets: ['devopsproject-app-1:8080']
