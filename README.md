@@ -1,10 +1,10 @@
-Space News Aggregator - Pipeline DevOps
+## Space News Aggregator - Pipeline DevOps
 Ce projet met en place un pipeline d’intégration et déploiement continu (CI/CD) pour l’application Space News Aggregator, développée en Spring Boot.
 
-Objectif
+## Objectif
 Automatiser la construction, la création d’image Docker, la publication et le déploiement de l’application, tout en assurant son monitoring.
 
-Description du pipeline Jenkins
+## Description du pipeline Jenkins
 Le pipeline comprend plusieurs étapes :
 
 Construction Maven : compilation et packaging de l’application depuis le dépôt GitHub.
@@ -15,14 +15,14 @@ Publication sur Docker Hub : connexion sécurisée et push de l’image vers Doc
 
 Déploiement avec Docker Compose : arrêt des anciens conteneurs et lancement des nouveaux via Docker Compose.
 
-Monitoring
+## Monitoring
 Le monitoring est assuré par :
 
 Prometheus : collecte des métriques applicatives.
 
 Grafana : visualisation des données pour le suivi en temps réel.
 
-Prérequis
+## Prérequis
 Jenkins avec Maven et Docker configurés.
 
 Compte Docker Hub avec identifiants enregistrés dans Jenkins.
@@ -31,7 +31,7 @@ Serveur avec Docker et Docker Compose installés.
 
 Configuration fonctionnelle de Prometheus et Grafana pour le monitoring.
 
-Utilisation
+## Utilisation
 Lancer le pipeline Jenkins permet de :
 
 Récupérer le code source.
@@ -44,7 +44,7 @@ Déployer automatiquement la nouvelle version.
 
 Suivre les performances grâce à Prometheus et Grafana.
 
-Ressources
+## Ressources
 Dépôt GitHub : https://github.com/m-elhamlaoui/development-platform-sneakpeak
 
 Image Docker Hub : hibaalaouii/devops-integration
