@@ -1,64 +1,50 @@
-# 🚀 Space News Aggregator
+Space News Aggregator - Pipeline DevOps
+Ce projet met en place un pipeline d’intégration et déploiement continu (CI/CD) pour l’application Space News Aggregator, développée en Spring Boot.
 
-The Space News Aggregator is a full-stack web platform that aggregates the latest space-related news and data from NASA and other APIs. It supports user accounts with a modern frontend and a Spring Boot backend.
+Objectif
+Automatiser la construction, la création d’image Docker, la publication et le déploiement de l’application, tout en assurant son monitoring.
 
----
+Description du pipeline Jenkins
+Le pipeline comprend plusieurs étapes :
 
-## 🌌 Features
+Construction Maven : compilation et packaging de l’application depuis le dépôt GitHub.
 
-- 🔭 **Live NASA News** — Articles imported via a public API and served dynamically.
-- 🛰️ **Mission Data Integration** — Real-time data on launches and expeditions retrieved via two public APIs from The Space Devs.
-- 📅 **Keyword & Date Filter** — Intuitive frontend filters to narrow down space news by keyword or date.
-- 📦 **Save-for-Later** — Logged-in users can bookmark articles to revisit later.
-- 🪐 **View Saved Mode** — Toggle to show only saved articles.
-- 🧠 **enhanced UX** — Articles are sorted by latest, with smooth animations, lazy loading, and a "Back to Top" experience.
-- 🖼️ **Single Article View** — Dedicated page with full content and original source link.
-- 🌍 **Public & Auth-Only Access** — Core data is publicly available; advanced features require login.
+Création de l’image Docker : construction d’une image Docker propre de l’application.
 
----
+Publication sur Docker Hub : connexion sécurisée et push de l’image vers Docker Hub.
 
-## 🛠️ Tech Stack
+Déploiement avec Docker Compose : arrêt des anciens conteneurs et lancement des nouveaux via Docker Compose.
 
-### Frontend
-- HTML/CSS (custom + responsive grid)
-- JavaScript (vanilla)
-- Dynamic UI/UX: Lazy loading, scroll animation, live filtering
+Monitoring
+Le monitoring est assuré par :
 
-### Backend
-- **Spring Boot**
-- **Spring Security** (with in-memory & DB authentication)
-- **JPA / Hibernate**
-- **PostgreSQL**
-- **REST API** to expose news, save/remove features
-- **Third-party API Integration:**
-  -- Nasa API for space-related articles.
-  -- The Space Devs APIs for real-time launch and expedition data.
-  -- APOD is a nasa api for Astronomy Picture Of the Day
-  -- Nasa API for information about asteroids close to earth
----
+Prometheus : collecte des métriques applicatives.
 
-## 🔐 User Features
+Grafana : visualisation des données pour le suivi en temps réel.
 
-- **Register / Login** system
-- **Session-based Auth**
-- **Save / Unsave Articles**
-- Articles persist per user in database
-- Feedback messages (ex: saved, already saved, must log in)
+Prérequis
+Jenkins avec Maven et Docker configurés.
 
----
+Compte Docker Hub avec identifiants enregistrés dans Jenkins.
 
-## 📦 Endpoints (API)
+Serveur avec Docker et Docker Compose installés.
 
-| Method | Endpoint                  | Description                     |
-|--------|---------------------------|---------------------------------|
-| GET    | `/api/articles`           | Fetch all articles              |
-| POST   | `/api/articles/import`    | Import latest articles  |
-| POST   | `/api/saved/{id}/save`    | Save article (auth required)   |
-| DELETE | `/api/saved/{id}/remove`  | Unsave article (auth required) |
-| GET    | `/api/saved/list`         | List saved articles             |
-| GET    | `/api/launches`           | Get launch events               |
-| GET    | `/api/expeditions`        | Get ongoing or planned expeditions              |
+Configuration fonctionnelle de Prometheus et Grafana pour le monitoring.
 
----
+Utilisation
+Lancer le pipeline Jenkins permet de :
 
+Récupérer le code source.
 
+Construire et packager l’application.
+
+Construire et publier l’image Docker.
+
+Déployer automatiquement la nouvelle version.
+
+Suivre les performances grâce à Prometheus et Grafana.
+
+Ressources
+Dépôt GitHub : https://github.com/m-elhamlaoui/development-platform-sneakpeak
+
+Image Docker Hub : hibaalaouii/devops-integration
